@@ -1,0 +1,21 @@
+[package]
+name = "ncm"
+version = "0.1.0"
+edition = "2024"
+description = "A CLI tool to help build conventional commit messages interactively."
+license = ""
+repository = "https://github.com/fsuares/ncm"
+
+[package.metadata.deb]
+maintainer = "F. Suares contato.fsuares@gmail.com"
+copyright = "2025, Fernando Suares"
+license-file = ["LICENSE", "0"]
+depends = "git"
+assets = [
+    ["target/release/ncm", "usr/bin/ncm", "755"],
+    ["README.md", "usr/share/doc/ncm/README.md", "644"],
+]
+
+[dependencies]
+anyhow = "1.0.98"
+inquire = "0.7.5"
