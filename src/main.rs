@@ -4,6 +4,10 @@ use inquire::{Select, Text, Confirm};
 use anyhow::Result;
 
 fn main() -> Result<()> {
+
+    // TODO: Add a check to ensure the current directory is a git repository
+    // TODO: Add a check to ensure the user has staged changes before committing
+
     let commit_type_options = vec![
         "feat: A new feature",
         "fix: A bug fix",
@@ -49,6 +53,8 @@ fn main() -> Result<()> {
         .filter(|s| !s.trim().is_empty())
         .map(|s| format!("({})", s.trim()))
         .unwrap_or_default();
+
+    // TODO: Check if has breaking changes and prompt for additional message if so
 
     let commit_message = format!("{}{}: {}", commit_type, scope_formatted, short_description);
 
